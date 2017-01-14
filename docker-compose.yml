@@ -1,0 +1,33 @@
+# you will need at least docker-compose version 1.7.1
+version: '2'
+services:
+  node:
+    image: node
+    container_name: nodeapp
+    volumes:
+         - .:/data
+    working_dir: /data
+    command: node test.js
+    environment:
+        - INSTANCE_NO=1
+  node2:
+    image: node
+    container_name: nodeapp2
+    volumes:
+         - .:/data
+    working_dir: /data
+    command: node test.js
+    environment:
+        - INSTANCE_NO=2
+  load_balancer:
+          image: haproxy
+          ports:
+            - "80:80"
+            - "8080:80"
+          volumes: 
+            - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro 
+          links: 
+            - node
+            - node2
+  hello_world:
+          image: hello-world
