@@ -1,9 +1,17 @@
+# Description: 
 The script will deploy 4 containers as follows:
-  - 1. haproxy with round-robin policy between the 2 app nodes
-  - 2. nodeapp which runs a nodejs
-  - 3. nodeapp2 which runs a nodejs
-  - 4. hello-world docker image
+
+  - haproxy with round-robin policy between the 2 app nodes
+  - nodeapp which runs a nodejs
+  - nodeapp2 which runs a nodejs
+  - hello-world docker image
   
+# Prerequisites: On the host you must have installed: docker, docker-compose.
   
- To deploy the containers, run "docker-compose up". 
+# Howto run:
+```
+git clone https://github.com/whizsper/docker-compose.git
+cd docker-compose/
+docker-compose up
+```
   
