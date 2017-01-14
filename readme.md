@@ -14,4 +14,7 @@ git clone https://github.com/whizsper/docker-compose.git
 cd docker-compose/
 docker-compose up
 ```
-  
+
+# Howto test:
+```To test the loadbalancer functionallity use http://localhost:80/8080```
+
